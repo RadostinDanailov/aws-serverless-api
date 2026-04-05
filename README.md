@@ -2,6 +2,9 @@
 A fully serverless, production‑ready CRUD API built using AWS Lambda, API Gateway (HTTP API), DynamoDB, and Terraform.
 This project demonstrates real‑world cloud engineering and DevOps practices, including Infrastructure as Code, event‑driven compute, IAM permissions, and automated deployments.
 ### Overview
+
+#I built the project manually to understand the fundamentals and rebuilt it using Terraform for automation and reproducibility.
+
 This API supports full Create, Read, Update, Delete operations on items stored in DynamoDB.
 The entire infrastructure is provisioned using Terraform, ensuring reproducibility and clean automation.
 
