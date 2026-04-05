@@ -1,0 +1,12 @@
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+
+# Lambda build artifacts
+*.zip
+__pycache__/
+
+# OS files
+.DS_Store
