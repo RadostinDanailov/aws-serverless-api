@@ -11,9 +11,11 @@ The entire infrastructure is provisioned using Terraform, ensuring reproducibili
 Once deployed, the API is immediately accessible via a public HTTPS endpoint.
 
 ### Architecture
-Client[Client / Curl / Frontend] -->|HTTPS Request| APIGW[API Gateway<br>HTTP API]
+Client[Client / Curl / Frontend] 
+-->|HTTPS Request| APIGW[API Gateway<br>HTTP API]
 APIGW -->|Proxy Integration| Lambda[Lambda Function<br>Python Handler]
 Lambda -->|Read/Write| DynamoDB[(DynamoDB Table<br>serverless-api-demo-items)]
+
    ###
    AWS[AWS Cloud]
         APIGW
@@ -26,7 +28,7 @@ Lambda -->|Read/Write| DynamoDB[(DynamoDB Table<br>serverless-api-demo-items)]
 
 
 ### Project Structure
-Code
+```
 aws-serverless-api/
 ├── lambda/
 │   └── handler.py
@@ -39,24 +41,17 @@ aws-serverless-api/
     ├── provider.tf
     ├── variables.tf
 
+```
+###Features:
 
-###Features
-
-Fully serverless architecture (no servers to manage)
-
-Clean, modular Terraform configuration
-
-Automatic Lambda packaging via archive_file
-
-HTTP API v2 event handling
-
-DynamoDB table with on‑demand capacity
-
-IAM roles with least‑privilege permissions
-
-Auto‑deploy API Gateway stage
-
-Easy to extend with new routes or services
+- Fully serverless architecture (no servers to manage)
+- Clean, modular Terraform configuration
+- Automatic Lambda packaging via archive_file
+- HTTP API v2 event handling
+- DynamoDB table with on‑demand capacity
+- IAM roles with least‑privilege permissions
+- Auto‑deploy API Gateway stage
+- Easy to extend with new routes or services
 
 ### Deployment
 
@@ -77,7 +72,7 @@ Code
 api_invoke_url = "https://xxxx.execute-api.eu-west-2.amazonaws.com"
 dynamodb_table_name = "serverless-api-demo-items"
 
-###Testing the API
+## Testing the API
 Replace <api> with your actual API URL.
 
 Create an item
@@ -100,7 +95,7 @@ Delete an item
 bash
 curl -X DELETE https://<api>/items/1
 
-###Lambda Handler (Python)
+## Lambda Handler (Python)
 python
 import json
 import boto3
@@ -141,13 +136,10 @@ def response(status, body):
         "headers": {"Content-Type": "application/json"},
         "body": json.dumps(body)
     }
-### Security & IAM
-Lambda runs with a dedicated IAM role
+### Security & IAM:
 
-Only DynamoDB table access is permitted
-
-API Gateway is explicitly allowed to invoke Lambda
-
-No hard‑coded credentials
-
-Infrastructure is fully reproducible and version‑controlled
+- Lambda runs with a dedicated IAM role
+- Only DynamoDB table access is permitted
+- API Gateway is explicitly allowed to invoke Lambda
+- No hard‑coded credentials
+- Infrastructure is fully reproducible and version‑controlled
