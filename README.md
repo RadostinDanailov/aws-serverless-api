@@ -42,7 +42,7 @@ aws-serverless-api/
     ├── variables.tf
 
 ```
-###Features:
+## Features:
 
 - Fully serverless architecture (no servers to manage)
 - Clean, modular Terraform configuration
@@ -53,7 +53,7 @@ aws-serverless-api/
 - Auto‑deploy API Gateway stage
 - Easy to extend with new routes or services
 
-### Deployment
+## Deployment
 
 From the infra/ directory:
 
@@ -96,7 +96,8 @@ bash
 curl -X DELETE https://<api>/items/1
 
 ## Lambda Handler (Python)
-python
+
+```python
 import json
 import boto3
 import os
@@ -136,6 +137,8 @@ def response(status, body):
         "headers": {"Content-Type": "application/json"},
         "body": json.dumps(body)
     }
+    ```
+```
 ### Security & IAM:
 
 - Lambda runs with a dedicated IAM role
@@ -143,3 +146,4 @@ def response(status, body):
 - API Gateway is explicitly allowed to invoke Lambda
 - No hard‑coded credentials
 - Infrastructure is fully reproducible and version‑controlled
+```
