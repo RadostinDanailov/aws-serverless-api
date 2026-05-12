@@ -137,8 +137,8 @@ def response(status, body):
         "headers": {"Content-Type": "application/json"},
         "body": json.dumps(body)
     }
-    ```
-
+    
+```
 ### Security & IAM:
 
 - Lambda runs with a dedicated IAM role
