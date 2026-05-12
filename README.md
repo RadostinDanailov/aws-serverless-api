@@ -138,7 +138,7 @@ def response(status, body):
         "body": json.dumps(body)
     }
     ```
-```
+
 ### Security & IAM:
 
 - Lambda runs with a dedicated IAM role
@@ -146,4 +146,4 @@ def response(status, body):
 - API Gateway is explicitly allowed to invoke Lambda
 - No hard‑coded credentials
 - Infrastructure is fully reproducible and version‑controlled
-```
+
